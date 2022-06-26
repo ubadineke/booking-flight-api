@@ -9,7 +9,7 @@ router.get('/', controller.example)
 router.get('/allflights', controller.getFlights);
 
 //Get Single Flight
-//router.get('/:id', controller.singleFlight)
+router.get('/flights/:id', controller.singleFlight)
 
 //Add/Book A Flight
 //router.post('/bookflight', controller.bookFlight);
