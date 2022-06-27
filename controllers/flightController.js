@@ -59,3 +59,20 @@ exports.bookFlight = (req, res) => {
     });
     res.json(flightDetails);
   };
+
+  //Update Flight 
+  exports.updateFlight = (req, res) => {
+
+  }
+
+  //Delete Flight
+  exports.deleteFlight = (req, res) => {
+    const id = req.params.id;
+    console.log(id)
+    function deletedFlight(flight){
+        flight.id != id;
+    }
+    const delFlight = flightDetails.filter(deletedFlight);
+    console.log(delFlight)
+    res.json(delFlight);
+  };

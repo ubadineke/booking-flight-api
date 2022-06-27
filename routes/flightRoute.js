@@ -15,10 +15,10 @@ router.get('/flights/:id', controller.singleFlight)
 router.post('/bookflight', controller.bookFlight);
 
 //Update Existing Flight
-//router.put('updateflight/:id', controller.updateFlight)
+router.put('/updateflight/:id', controller.updateFlight);
 
 //Delete Flight
-//router.delete('deleteflight/:id', controller.deleteFlight)
+router.delete('/deleteflight/:id', controller.deleteFlight);
 
 //Listen for Requests
 
