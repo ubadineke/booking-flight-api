@@ -11,7 +11,8 @@ const flightDetails = [
     time: "1pm",
     price: 26000,
     date: "26-06-2022",
-    id: uuid(),
+    //id: uuid(),
+    id: 25,
   },
 ];
 
@@ -35,3 +36,26 @@ exports.singleFlight = (req, res) => {
        }
     res.end;
 };
+
+//Update Existing Flight 
+/*exports.updateFlight = (req, res) => {
+    const id = req.params.id;
+    const {price, date} = req.body;
+    console.log(price);
+}*/
+
+//Add/Book Flight 
+exports.bookFlight = (req, res) => {
+    const { title, price } = req.body;
+    if (!title || !price) {
+      return res.json({ message: "Please Provide Necessary Fields" });
+    }
+    flightDetails.push({
+      title,
+      time: new Date().toLocaleTimeString(),
+      price,
+      date: new Date().toLocaleDateString(),
+      id: uuid(),
+    });
+    res.json(flightDetails);
+  };

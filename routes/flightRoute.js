@@ -12,7 +12,7 @@ router.get('/allflights', controller.getFlights);
 router.get('/flights/:id', controller.singleFlight)
 
 //Add/Book A Flight
-//router.post('/bookflight', controller.bookFlight);
+router.post('/bookflight', controller.bookFlight);
 
 //Update Existing Flight
 //router.put('updateflight/:id', controller.updateFlight)
