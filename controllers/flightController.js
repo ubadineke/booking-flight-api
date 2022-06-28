@@ -31,18 +31,11 @@ exports.singleFlight = (req, res) => {
      const singleFlight = flightDetails.find(flightName);
      if (!singleFlight) {
         return res.json({message: "Flight not found"});
-      }else{
-         res.json(singleFlight);
-       }
-    res.end;
+     }
+    res.json(singleFlight);
 };
 
-//Update Existing Flight 
-/*exports.updateFlight = (req, res) => {
-    const id = req.params.id;
-    const {price, date} = req.body;
-    console.log(price);
-}*/
+
 
 //Add/Book Flight 
 exports.bookFlight = (req, res) => {
@@ -60,10 +53,22 @@ exports.bookFlight = (req, res) => {
     res.json(flightDetails);
   };
 
-  //Update Flight 
-  exports.updateFlight = (req, res) => {
+//Update Existing Flight 
+    exports.updateFlight = (req, res) => {
+        const id = req.params.id;
+    const { title, price } = req.body;
 
-  }
+    function updatingFlight(flight){
+        return flight.id == id;
+    }
+    const updatedFlight = flightDetails.find(updatingFlight);
+    if (updatedFlight) {
+        updatedFlight.price = price;
+        updatedFlight.title = title;
+
+        res.json(updatedFlight);
+    }
+    };
 
   //Delete Flight
   exports.deleteFlight = (req, res) => {
@@ -73,6 +78,10 @@ exports.bookFlight = (req, res) => {
         flight.id != id;
     }
     const delFlight = flightDetails.filter(deletedFlight);
-    console.log(delFlight)
+    if (!delFlight) {
+        res.json({message: "Flight not found"});
+     }else{
+         res.json({message: "Flight has been deleted successfully"})
+     }
     res.json(delFlight);
   };

@@ -6,7 +6,7 @@ const controller = require('../controllers/flightController');
 router.get('/', controller.example)
 
 //Get All Flights
-router.get('/allflights', controller.getFlights);
+router.get('/flights', controller.getFlights);
 
 //Get Single Flight
 router.get('/flights/:id', controller.singleFlight)
